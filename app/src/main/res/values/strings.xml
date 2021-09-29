@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Lab05</string>
+    <string name="countInRun">
+        Number of times in current run: \n
+        onCreate: %1$d \n
+        onStart: %2$d \n
+        onResume: %3$d \n
+        onPause: %4$d \n
+        onStop: %5$d \n
+        onRestart: %6$d \n
+        onDestroy: %7$d \n
+    </string>
+    <string name="countInLifetime">
+        Number of times in current lifetime:
+        onCreate: %1$d \n
+        onStart: %2$d \n
+        onResume: %3$d \n
+        onPause: %4$d \n
+        onStop: %5$d \n
+        onRestart: %6$d \n
+        onDestroy: %7$d \n
+    </string>
+</resources>
