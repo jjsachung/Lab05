@@ -11,7 +11,7 @@
         onDestroy: %7$d \n
     </string>
     <string name="countInLifetime">
-        Number of times in current lifetime:
+        Number of times in current lifetime: \n
         onCreate: %1$d \n
         onStart: %2$d \n
         onResume: %3$d \n
@@ -20,4 +20,7 @@
         onRestart: %6$d \n
         onDestroy: %7$d \n
     </string>
+    <string name="reset">Reset!</string>
+    <string name="textbox_run">Textbox run</string>
+    <string name="textbox_lifetime">Textbox lifetime</string>
 </resources>

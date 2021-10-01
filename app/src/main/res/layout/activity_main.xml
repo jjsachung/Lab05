@@ -6,24 +6,46 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <androidx.constraintlayout.widget.Guideline
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textbox_run"
-        android:text="Textbox run"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:id="@+id/guideline_horizontal"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".2"/>
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/textbox_length"
+        android:layout_height="@dimen/textbox_length"
+        android:id="@+id/textbox_run"
+        android:text="@string/textbox_run"
+        android:textSize="@dimen/fontsize"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/guideline_horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:layout_width="@dimen/textbox_length"
+        android:layout_height="@dimen/textbox_length"
         android:id="@+id/textbox_lifetime"
-        android:text="Textbox lifetime"
+        android:text="@string/textbox_lifetime"
+        android:textSize="@dimen/fontsize"
+        android:gravity="center"
         app:layout_constraintTop_toBottomOf="@+id/textbox_run"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/reset_button"
+        android:text="@string/reset"
+        android:backgroundTint="#4b7055"
+        app:layout_constraintTop_toBottomOf="@id/textbox_lifetime"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:onClick="reset"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

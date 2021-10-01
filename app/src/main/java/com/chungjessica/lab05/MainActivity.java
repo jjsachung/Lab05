@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -14,6 +15,14 @@ public class MainActivity extends AppCompatActivity {
     int countonStop = 0;
     int countonRestart = 0;
     int countonDestroy = 0;
+
+    int countonCreateRun = 0;
+    int countonStartRun = 0;
+    int countonResumeRun = 0;
+    int countonPauseRun = 0;
+    int countonStopRun = 0;
+    int countonRestartRun = 0;
+    int countonDestroyRun = 0;
 
     TextView textrun;
     TextView textlifetime;
@@ -32,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         setInitialValues();
 
         countonCreate++;
+        countonCreateRun++;
         storeValues();
 
 
@@ -46,18 +56,11 @@ public class MainActivity extends AppCompatActivity {
         editor.putInt("onRestart", countonRestart);
         editor.putInt("onDestroy", countonDestroy);
         editor.apply();
-        System.out.println("Values onCreate:" + countonCreate);
-        System.out.println("Values onStart:" + countonStart);
-        System.out.println("Values onResume:" + countonResume);
-        System.out.println("Values onPause:" + countonPause);
-        System.out.println("Values onStop:" + countonStop);
-        System.out.println("Values onRestart:" + countonRestart);
-        System.out.println("Values onDestroy:" + countonDestroy);
-        System.out.println("Values ************************");
 
         textrun = findViewById(R.id.textbox_run);
-        textrun.setText(getString(R.string.countInRun, countonCreate, countonStart,
-                countonResume, countonPause, countonStop, countonRestart, countonDestroy));
+        textrun.setText(getString(R.string.countInRun, countonCreateRun, countonStartRun,
+                countonResumeRun, countonPauseRun, countonStopRun, countonRestartRun,
+                countonDestroyRun));
         textlifetime = findViewById(R.id.textbox_lifetime);
         textlifetime.setText(getString(R.string.countInLifetime, sh.getInt("onCreate", 0),
                 sh.getInt("onStart", 0), sh.getInt("onResume", 0),
@@ -76,12 +79,20 @@ public class MainActivity extends AppCompatActivity {
         countonStop = sh.getInt("onStop", 0);
         countonRestart = sh.getInt("onRestart", 0);
         countonDestroy = sh.getInt("onDestroy", 0);
+        countonCreateRun = 0;
+        countonStartRun = 0;
+        countonResumeRun = 0;
+        countonPauseRun = 0;
+        countonStopRun = 0;
+        countonRestartRun = 0;
+        countonDestroyRun = 0;
     }
 
     @Override
     protected void onStart() {
         super.onStart();
         countonStart++;
+        countonStartRun++;
         storeValues();
     }
 
@@ -89,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         countonResume++;
+        countonResumeRun++;
         storeValues();
     }
 
@@ -96,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         countonPause++;
+        countonPauseRun++;
         storeValues();
     }
 
@@ -103,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         countonStop++;
+        countonStopRun++;
         storeValues();
     }
 
@@ -110,6 +124,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onRestart() {
         super.onRestart();
         countonRestart++;
+        countonRestartRun++;
         storeValues();
     }
 
@@ -117,6 +132,25 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         countonDestroy++;
+        countonDestroyRun++;
+        storeValues();
+    }
+
+    public void reset(View view) {
+        countonCreate = 0;
+        countonStart = 0;
+        countonResume = 0;
+        countonPause = 0;
+        countonStop = 0;
+        countonRestart = 0;
+        countonDestroy = 0;
+        countonCreateRun = 0;
+        countonStartRun = 0;
+        countonResumeRun = 0;
+        countonPauseRun = 0;
+        countonStopRun = 0;
+        countonRestartRun = 0;
+        countonDestroyRun = 0;
         storeValues();
     }
 }
